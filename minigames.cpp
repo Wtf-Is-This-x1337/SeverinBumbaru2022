@@ -393,7 +393,7 @@ void pasare()
                         c[x][y] = ' ';
                         birdx = x;        // seteaza coordonata x
                         birdy = y - 1;      // seteaza coordonata y
-                        return;         // retuns to game func
+                        return;
                     }
             }
         }
@@ -407,9 +407,9 @@ void pasare()
             {
                 if (c[x][y] == '*')
                 {
-                    if (y < 20)  //if bird is not on the ground
+                    if (y < 20)
                     {
-                        if (bt < 3)   //if bird time is lower that 3, it falls 1 pixel
+                        if (bt < 3)
                         {
                             c[x][y + 1] = '*';
                             c[x][y] = ' ';
@@ -417,7 +417,7 @@ void pasare()
                             birdy = y + 1;
                             return;
                         }
-                        else if (bt > 2 && bt < 5)  //more time has passed, faster bird falls (acceleration)
+                        else if (bt > 2 && bt < 5)
                         {
                             c[x][y + 2] = '*';
                             c[x][y] = ' ';
@@ -454,11 +454,11 @@ void verificascor()  // verifica daca a crescut scorul
     }
 }
 
-void game(string jucator)  //function for playing game
+void game(string jucator)
 {
     int x, y;
     char s;
-    for (y = 0; y < 21; y++)  //setting afisareflappy
+    for (y = 0; y < 21; y++)
     {
         for (x = 0; x < 30; x++)
         {
@@ -493,11 +493,11 @@ void game(string jucator)  //function for playing game
         }
         pasare();
         verificascor(); // verifica scorul
-        if (gameover() == true) goto gameEnd;   //checks if bird hits pipes, if yes, game ends
+        if (gameover() == true) goto gameEnd;
         stalpi(); // creeaza pipe uri
         afisareflappy(jucator);
-        if (tuk > 0) tuk++;           //if key is pressed, bird will fly up 2 times.
-        if (tuk == 3) tuk = 0;          //after that, bird falls
+        if (tuk > 0) tuk++;
+        if (tuk == 3) tuk = 0;
     }
 gameEnd:   // sfarsit
     {
